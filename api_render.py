@@ -24,12 +24,12 @@ def movimento_banco(banco):
   return jsonify({banco: dic_banco})
 
 @app.route('/movimento/tipo/<tipo>') # Decorater -> Diz em qual link a função vai rodar
-def movimento_banco(tipo):
-  tabela_banco = tabela[['Tipo', 'Valor da Movimentação']].groupby('tipo').sum()
-  if tipo in tabela_banco.index:
-    valor_banco = tabela_banco.loc[tipo]
-    dic_banco = valor_banco.to_dict()
-  return jsonify({tipo: dic_banco})
+def movimento_tipo(tipo):
+  tabela_tipo = tabela[['Tipo', 'Valor da Movimentação']].groupby('Tipo').sum()
+  if tipo in tabela_tipo.index:
+    valor_tipo = tabela_tipo.loc[tipo]
+    dic_tipo = valor_tipo.to_dict()
+  return jsonify({tipo: dic_tipo})
 
 
 if __name__ == '__main__':
