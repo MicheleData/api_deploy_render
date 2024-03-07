@@ -1,1 +1,1 @@
-web: gunicorn api_render.wsgi
+web: gunicorn api_render:app
